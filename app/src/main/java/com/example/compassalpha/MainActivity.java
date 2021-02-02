@@ -3,10 +3,8 @@ package com.example.compassalpha;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
-import android.hardware.SensorManager;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,8 +17,7 @@ public class MainActivity extends AppCompatActivity {
     // UI Variables
     TextView azDirectionView;
     TextView azDegreesView;
-    ImageView compassImage;
-
+    CompassView compassView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +26,13 @@ public class MainActivity extends AppCompatActivity {
 
         azDirectionView = findViewById(R.id.azimuth_direction);
         azDegreesView = findViewById(R.id.azimuth_degrees);
-        compassImage = findViewById(R.id.compass_view);
+
+        compassView = ((CompassView) findViewById(R.id.compass_view))
+                            .setDirectionView(azDirectionView)
+                            .setDegreesView(azDegreesView);
 
         compass = new Compass(this,
-                new CompassView(azDirectionView, azDegreesView, compassImage),
+                compassView,
                 new CompassLogic()
         );
 

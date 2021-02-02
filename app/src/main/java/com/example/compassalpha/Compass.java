@@ -9,6 +9,7 @@ import android.hardware.SensorManager;
 public class Compass implements SensorEventListener {
     private final String tag = "Compass";
     private final Boolean compassSupported;
+    private final Boolean withAnimation = true;
 
     private CompassView compassView;
     private CompassLogic compassLogic;
@@ -17,7 +18,7 @@ public class Compass implements SensorEventListener {
     private SensorManager mSensorManager;
     private Sensor mRotationV, mAccelerometer, mMagnetometer;
 
-    private final int SENSOR_DELAY = SensorManager.SENSOR_DELAY_FASTEST;
+    private final int SENSOR_DELAY = SensorManager.SENSOR_DELAY_UI;
 
 
     // CONSTRUCTOR
@@ -52,7 +53,7 @@ public class Compass implements SensorEventListener {
 
         // Update the view of the compass
         int azimuth = compassLogic.getAzimuth();
-        compassView.updateView(azimuth);
+        compassView.updateView(azimuth, withAnimation);
     }
 
     @Override

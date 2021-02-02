@@ -28,7 +28,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/azimuth_direction" />
 
-    <ImageView
+    <com.example.compassalpha.CompassView
         android:id="@+id/compass_view"
         android:layout_width="380dp"
         android:layout_height="398dp"
