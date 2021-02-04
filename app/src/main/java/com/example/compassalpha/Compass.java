@@ -9,7 +9,7 @@ import android.hardware.SensorManager;
 public class Compass implements SensorEventListener {
     private final String tag = "Compass";
     private final Boolean compassSupported;
-    private final Boolean withAnimation = true;
+    private Boolean withAnimation = true;
 
     private CompassView compassView;
     private CompassLogic compassLogic;
@@ -79,6 +79,8 @@ public class Compass implements SensorEventListener {
     public Boolean isSupported(){
         return compassSupported;
     }
+
+    public void setAnimation(boolean withAnimation){this.withAnimation = withAnimation;}
 
 
     // PRIVATE METHODS

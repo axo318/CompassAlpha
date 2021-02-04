@@ -21,4 +21,7 @@
     <string name="BatteryActivityName">Battery</string>
     <string name="SettingsActivityName">Settings</string>
 
+    <!--  Settings  -->
+    <string name="settings_compassAnimation">Compass Animation</string>
+
 </resources>
