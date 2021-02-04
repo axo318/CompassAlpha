@@ -220,7 +220,7 @@ public class CompassView extends androidx.appcompat.widget.AppCompatImageView {
      * @return
      */
     private String getDegreesString(int azimuth){
-        final String degreesText = "Azimuth :";
+        final String degreesText = "Azimuth: ";
         return String.format("%s%d", degreesText, azimuth);
     }
 
