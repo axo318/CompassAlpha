@@ -3,7 +3,6 @@ package com.example.compassalpha;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -59,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void noSupportAlert() {
         Toast.makeText(this, "Warning! No sensor data available", Toast.LENGTH_SHORT).show();
-
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
         alertDialog.setMessage("Warning! No sensor data available. This device does not support the compass")
                 .setCancelable(false)
