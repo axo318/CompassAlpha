@@ -6,4 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".SettingsActivity">
 
+
+    <Switch
+        android:id="@+id/animation_on"
+        android:layout_width="328dp"
+        android:layout_height="43dp"
+        android:text="@string/settings_compassAnimation"
+        android:textSize="8pt"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

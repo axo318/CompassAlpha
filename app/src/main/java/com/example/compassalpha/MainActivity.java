@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        SettingsData.initSettingsData(this);
 
         // Initialize Navigation
         DrawerLayout mDrawerLayout = findViewById(R.id.drawer_layout);
@@ -59,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
                             .setDirectionView(azDirectionView)
                             .setDegreesView(azDegreesView);
         compass = new Compass(this, compassView, new CompassLogic());
+        compass.setAnimation(SettingsData.getSettingsData().isAnimationOn());
 
         // Check that compass is supported by device
         if(compass.isSupported())
@@ -77,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         compass.start();
+        compass.setAnimation(SettingsData.getSettingsData().isAnimationOn());
     }
 
     @Override
