@@ -13,8 +13,8 @@
 
     <!--  Navigation Drawer Strings  -->
     <string name="nav_header_desc">Description</string>
-    <string name="nav_header_title">Title</string>
-    <string name="nav_header_subtitle">Subtitle</string>
+    <string name="nav_header_title">\@Username</string>
+    <string name="nav_header_subtitle">Account Support Coming Soon!</string>
 
     <!--  Activity Names  -->
     <string name="MainActivityName">Compass</string>

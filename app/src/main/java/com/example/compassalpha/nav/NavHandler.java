@@ -28,11 +28,25 @@ public class NavHandler {
     private NavigationView navView;
     private ActionBarDrawerToggle mToggle;
 
+
+    // CONSTRUCTORS
+    /**
+     * Constructor used for Non-parent activities. This only enables the "back" arrow
+     *
+     * @param activity      Current activity instance
+     */
     public NavHandler(AppCompatActivity activity){
         this.activity = activity;
         Objects.requireNonNull(activity.getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
     }
 
+    /**
+     * Constructor used for parent activities. Sets up the navigation drawer.
+     *
+     * @param activity          Current activity instance
+     * @param mDrawerLayout     Initialized drawerLayout
+     * @param navView           Initialized NavigationView
+     */
     public NavHandler(AppCompatActivity activity, DrawerLayout mDrawerLayout, NavigationView navView){
         this.activity = activity;
         this.mDrawerLayout = mDrawerLayout;
@@ -46,11 +60,22 @@ public class NavHandler {
         setUpMenu();
     }
 
-    // This connects the button of the nav menu to the menu
+    /**
+     * Connects the button of the nav menu to the menu. Should be called in
+     * Activity.onOptionsItemSelected callback.
+     *
+     * @param item      MenuItem pressed
+     * @return          Boolean
+     */
     public boolean onOptionsItemSelected(MenuItem item){
         return mToggle.onOptionsItemSelected(item);
     }
 
+
+    // PRIVATE METHODS
+    /**
+     * Sets up navigation menu
+     */
     private void setUpMenu(){
         navView.setNavigationItemSelectedListener(
                 menuItem -> {
@@ -77,6 +102,11 @@ public class NavHandler {
         Log.d(tag, "[setUpNavigationMenu]: Nav menu buttons were successfully set");
     }
 
+    /**
+     * Changes the current activity
+     *
+     * @param act   Class of target activity
+     */
     private void goToActivity(final Class<? extends Activity> act){
         Intent intent = new Intent((Context) activity, act);
         activity.startActivity(intent);

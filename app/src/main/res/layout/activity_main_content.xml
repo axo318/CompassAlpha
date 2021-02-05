@@ -29,17 +29,36 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/azimuth_direction" />
 
-    <com.example.compassalpha.compass.CompassView
-        android:id="@+id/compass_view"
-        android:layout_width="380dp"
-        android:layout_height="398dp"
+    <FrameLayout
+        android:id="@+id/compass_frame"
+        android:layout_width="wrap_content"
+        android:layout_height="405dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/azimuth_degrees"
-        app:layout_constraintVertical_bias="0.204"
-        app:srcCompat="@drawable/gold_compass" />
+        app:layout_constraintVertical_bias="0.204">
+
+        <com.example.compassalpha.compass.CompassView
+            android:id="@+id/compass_view"
+            android:layout_width="380dp"
+            android:layout_height="398dp"
+            app:srcCompat="@drawable/gold_compass"
+            android:layout_gravity="bottom"/>
+
+        <ImageView
+            android:id="@+id/redArrow"
+            android:layout_width="380dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/compass_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/triangle_north"
+            android:layout_gravity="top"/>
+
+    </FrameLayout>
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -50,9 +69,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/compass_view"
+        app:layout_constraintTop_toBottomOf="@+id/compass_frame"
         app:layout_constraintVertical_bias="0.396"
-        app:srcCompat="@android:drawable/ic_menu_camera" />
+        app:backgroundTint="#343d52"
+        app:tint="@color/white"
+        app:srcCompat="@drawable/camera_white" />
     <!--        android:layout_margin="@dimen/fab_margin"-->
 
 

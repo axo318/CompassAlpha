@@ -15,7 +15,7 @@ public class BatteryInfo {
     private Context context;
     private IntentFilter iFilter;
 
-    TextView batteryInfo;
+    TextView batteryInfo;           // Pointer to textView for outputting data
 
     // Battery variables
     private int batteryL;           // Battery Level
@@ -27,6 +27,10 @@ public class BatteryInfo {
     private String batteryPlugged;  // Battery Plugged in
 
     // Create custom Receiver for saving battery information
+    /**
+     * Custom broadcastReceiver responsible for receiving all required battery information
+     * and populating batteryInfo TextView
+     */
     private BroadcastReceiver mBatInfoReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -105,10 +109,17 @@ public class BatteryInfo {
         }
     };
 
+    /**
+     * Public constructor initializes object and registers broadcastReceiver
+     *
+     * @param context       Context of application
+     * @param batteryInfo   TextView pointer for updating battery info
+     */
     public BatteryInfo(Context context, TextView batteryInfo){
         this.context = context;
         this.batteryInfo = batteryInfo;
 
+        // Register custom receiver using an IntentFilter
         iFilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
         context.registerReceiver(mBatInfoReceiver, iFilter);
     }

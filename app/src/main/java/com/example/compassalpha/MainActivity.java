@@ -21,7 +21,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
-
     private static final String tag = "MainActivity";
 
     private NavHandler navHandler;          // Sets up the navMenu

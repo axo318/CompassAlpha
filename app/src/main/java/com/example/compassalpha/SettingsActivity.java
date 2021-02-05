@@ -12,14 +12,18 @@ public class SettingsActivity extends AppCompatActivity {
     private static final String tag = "SettingsActivity";
 
     private NavHandler navHandler;      // Sets up the navMenu
-    private Settings settings;
+    private Settings settings;          // Handles app settings
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+        // Initialize the top navigation bar
         navHandler = new NavHandler(this);
 
+        // Initialize settings object passing it the CompassAnimation
+        // switch
         Switch animationSwitch = findViewById(R.id.animation_on);
         settings = new Settings(this, animationSwitch);
     }

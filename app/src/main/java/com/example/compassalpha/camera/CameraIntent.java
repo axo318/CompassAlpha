@@ -179,8 +179,6 @@ public class CameraIntent {
      */
     private File getOutputMediaFile(Context context) throws IOException{
         // Create a media file name
-//        @SuppressLint("SimpleDateFormat") String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-//        String imageFileName = "IMG_" + compassTag + "_" + timestamp;
         String imageFileName = "IMG_" + compassTag + "_";
 
         File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);

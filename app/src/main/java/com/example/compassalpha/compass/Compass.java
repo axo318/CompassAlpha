@@ -8,9 +8,12 @@ import android.hardware.SensorManager;
 
 public class Compass implements SensorEventListener {
     private final String tag = "Compass";
+
+    private final int SENSOR_DELAY = SensorManager.SENSOR_DELAY_UI;     // Delay used for sensors
     private final Boolean compassSupported;
     private Boolean withAnimation = true;
 
+    // Compass variables
     private CompassView compassView;
     private CompassLogic compassLogic;
 
@@ -18,10 +21,18 @@ public class Compass implements SensorEventListener {
     private SensorManager mSensorManager;
     private Sensor mRotationV, mAccelerometer, mMagnetometer;
 
-    private final int SENSOR_DELAY = SensorManager.SENSOR_DELAY_UI;
-
 
     // CONSTRUCTOR
+    /**
+     * Public constructor
+     * Initializes sensor services using the app context and checks sensor requirements
+     * User is responsible for checking whether the phone supports required sensors
+     * after initialization
+     *
+     * @param context           App Context object
+     * @param compassView       Initialized CompassView object
+     * @param compassLogic      Initialized CompassLogic object
+     */
     public Compass(Context context, CompassView compassView, CompassLogic compassLogic){
         this.compassView = compassView;
         this.compassLogic = compassLogic;
@@ -36,6 +47,13 @@ public class Compass implements SensorEventListener {
 
 
     // PUBLIC METHODS
+    /**
+     * Callback method which handles sensor events. Everytime sensor readings
+     * are updated, this method is called. It updates compass position using
+     * CompassLogic object, and sends the updated information to CompassView
+     *
+     * @param event     SensorEvent containing values
+     */
     @Override
     public void onSensorChanged(SensorEvent event) {
         // Update sensor data in compassLogic
@@ -56,10 +74,19 @@ public class Compass implements SensorEventListener {
         compassView.updateView(azimuth, withAnimation);
     }
 
+    /**
+     * SensorEventListener interface method. Does nothing.
+     *
+     * @param sensor
+     * @param accuracy
+     */
     @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy) {
-    }
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {}
 
+    /**
+     * Registers sensor listeners depending on what sensors are available.
+     * Should be added as a callback in Activity.onStart()
+     */
     public void start(){
         if(mRotationV == null){
             if(mAccelerometer != null && mMagnetometer != null){
@@ -72,24 +99,39 @@ public class Compass implements SensorEventListener {
         }
     }
 
-    public void stop(){
-        mSensorManager.unregisterListener(this);
-    }
+    /**
+     * Unregisters sensor listeners.
+     * Should be added as a callback in Activity.onStop()
+     */
+    public void stop(){ mSensorManager.unregisterListener(this); }
 
-    public Boolean isSupported(){
-        return compassSupported;
-    }
+    /**
+     * If device does not support the sensors required for this compass to function
+     * this returns false
+     *
+     * @return      Boolean isSupported
+     */
+    public Boolean isSupported(){ return compassSupported; }
 
-    public void setAnimation(boolean withAnimation){this.withAnimation = withAnimation;}
+    /**
+     * Turns on/off the compass animation
+     *
+     * @param withAnimation     Boolean that sets animation on/off
+     */
+    public void setAnimation(boolean withAnimation){ this.withAnimation = withAnimation; }
 
 
     // PRIVATE METHODS
+    /**
+     * Checks sensor requirements
+     *
+     * @return      Boolean device support
+     */
     private Boolean checkRequirements() {
-        if(mRotationV == null){
+        if(mRotationV == null)
             return mAccelerometer != null && mMagnetometer != null;
-        }
-        return true;
-
+        else
+            return true;
     }
 
 }

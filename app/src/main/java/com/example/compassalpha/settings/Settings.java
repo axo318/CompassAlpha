@@ -3,14 +3,19 @@ package com.example.compassalpha.settings;
 import android.content.Context;
 import android.widget.Switch;
 
+
 public class Settings {
-
-    private final String animationOn_key = "animationOn";
-    private static final Settings settings = null;
-
     private Context context;
     private Switch animationSwitch;
 
+
+    // CONSTRUCTOR
+    /**
+     * Initializes Settings options
+     *
+     * @param context           Current app context
+     * @param animationSwitch   Initialized switch for compass animation
+     */
     public Settings(Context context, Switch animationSwitch){
         this.context = context;
         this.animationSwitch = animationSwitch;
