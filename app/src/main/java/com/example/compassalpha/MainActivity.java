@@ -1,22 +1,24 @@
 package com.example.compassalpha;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.compassalpha.camera.CameraIntent;
+import com.example.compassalpha.compass.Compass;
+import com.example.compassalpha.compass.CompassLogic;
+import com.example.compassalpha.compass.CompassView;
+import com.example.compassalpha.nav.NavHandler;
+import com.example.compassalpha.settings.SettingsData;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
 

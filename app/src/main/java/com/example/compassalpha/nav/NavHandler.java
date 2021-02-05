@@ -1,4 +1,4 @@
-package com.example.compassalpha;
+package com.example.compassalpha.nav;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,6 +10,9 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.compassalpha.BatteryActivity;
+import com.example.compassalpha.R;
+import com.example.compassalpha.SettingsActivity;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.Objects;
