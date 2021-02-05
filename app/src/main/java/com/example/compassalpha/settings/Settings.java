@@ -1,4 +1,4 @@
-package com.example.compassalpha;
+package com.example.compassalpha.settings;
 
 import android.content.Context;
 import android.widget.Switch;

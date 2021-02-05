@@ -1,4 +1,4 @@
-package com.example.compassalpha;
+package com.example.compassalpha.camera;
 
 import android.Manifest;
 import android.annotation.SuppressLint;

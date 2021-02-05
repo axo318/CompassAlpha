@@ -1,4 +1,4 @@
-package com.example.compassalpha;
+package com.example.compassalpha.compass;
 
 import android.content.Context;
 import android.hardware.Sensor;

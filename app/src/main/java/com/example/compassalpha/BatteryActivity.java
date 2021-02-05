@@ -2,15 +2,11 @@ package com.example.compassalpha;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.os.BatteryManager;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
+import com.example.compassalpha.battery.BatteryInfo;
+import com.example.compassalpha.nav.NavHandler;
 
 public class BatteryActivity extends AppCompatActivity {
     private static final String tag = "BatteryActivity";

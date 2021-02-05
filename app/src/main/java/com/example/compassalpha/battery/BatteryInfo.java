@@ -1,4 +1,4 @@
-package com.example.compassalpha;
+package com.example.compassalpha.battery;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
